@@ -1,18 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Coin from "./pages/CoinPage";
 import Home from "./pages/Home";
-import React from 'react'
+import React from "react";
+import { ThemeProvider } from "./context/ThemeContext";
+import Navbar from "./components/Navbar";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/coin" element={<Coin />}></Route>
-        </Routes>
-      </Router>
-    </div>
+    <ThemeProvider>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </ThemeProvider>
   );
 }
 
