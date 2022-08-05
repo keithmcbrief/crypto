@@ -1,10 +1,10 @@
 import React from 'react'
 import CoinSearch from '../components/CoinSearch'
 
-export default function Home() {
+export default function Home({ coins }) {
   return (
     <div>
-      <CoinSearch />
+      <CoinSearch coins={coins} />
     </div>
   )
 }
