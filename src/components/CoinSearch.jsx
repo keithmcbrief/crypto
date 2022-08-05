@@ -6,8 +6,9 @@ const CoinSearch = ({ coins }) => {
   const [searchInput, setSearchInput] = useState("");
 
   return (
-    <div>
-      <div>
+    <div className="rounded-div my-4">
+      <div className="flex flex-col md:flex-row
+      justify-between pt-2 pb-6 text-center md:text-right">
         <h1>Coins</h1>
         <form>
           <input
