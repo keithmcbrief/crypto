@@ -5,6 +5,9 @@ const CoinSearch = ({ coins }) => {
     <div>
       <div>
         <h1>Search Coins</h1>
+        <form>
+          <input type="text" placeholder='Search For A Coin' />
+        </form>
       </div>
     </div>
   )
