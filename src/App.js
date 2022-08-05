@@ -16,7 +16,6 @@ function App() {
   useEffect(() => {
     axios.get(url).then((res) => {
       setCoins(res.data);
-      console.log(res.data);
     });
   }, [url]);
 
@@ -24,7 +23,7 @@ function App() {
     <ThemeProvider>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home coins />} />
+        <Route path="/" element={<Home coins={coins} />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/account" element={<Account />} />

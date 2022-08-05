@@ -2,7 +2,11 @@ import React from 'react'
 
 const CoinSearch = ({ coins }) => {
   return (
-    <div>CoinSearch</div>
+    <div>
+      <div>
+        <h1>Search Coins</h1>
+      </div>
+    </div>
   )
 }
 
