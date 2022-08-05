@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 import CoinItem from "./CoinItem";
 
 const CoinSearch = ({ coins }) => {
+  const [searchInput, setSearchInput] = useState("");
+
   return (
     <div>
       <div>
         <h1>Coins</h1>
         <form>
-          <input type="text" placeholder="Search For A Coin" />
+          <input
+            value={searchInput}
+            onChange={(event) => setSearchInput(event.target.value)}
+            type="text"
+            placeholder="Search For A Coin"
+          />
         </form>
       </div>
 
@@ -26,9 +33,19 @@ const CoinSearch = ({ coins }) => {
           </tr>
         </thead>
         <tbody>
-          {coins.map((coin) => (
-            <CoinItem key={coin.id} coin={coin} />
-          ))}
+          {coins
+            .filter((value) => {
+              if (searchInput === "") {
+                return value;
+              } else if (
+                value.name.toLowerCase().includes(searchInput.toLowerCase())
+              ) {
+                return value;
+              }
+            })
+            .map((coin) => (
+              <CoinItem key={coin.id} coin={coin} />
+            ))}
         </tbody>
       </table>
     </div>
