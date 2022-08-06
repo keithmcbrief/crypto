@@ -25,8 +25,10 @@ const Trending = () => {
             >
               <div className="flex w-full items-center justify-between">
                 <div className="flex">
-                  <img src={coin.item.small} alt="" />
-                  <div className="flex w-2">
+                  <img 
+                  className="rounded-full mr-4"
+                  src={coin.item.small} alt="" />
+                  <div>
                     <p className="font-bold">{coin.item.name}</p>
                     <p>{coin.item.symbol}</p>
                   </div>
