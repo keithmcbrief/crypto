@@ -136,7 +136,7 @@ export default function Coin() {
               )}
             </div>
           </div>
-          <div className="flex justify-around p-8 text-accent">
+          <div className="flex justify-around p-8 text-accent text-3xl">
             <FaTwitter />
             <FaFacebook />
             <FaReddit />
@@ -145,7 +145,6 @@ export default function Coin() {
         </div>
       </div>
 
-      {/* Description */}
       <div className="py-4">
         <p className="text-xl font-bold">About {coin.name}</p>
         <p
