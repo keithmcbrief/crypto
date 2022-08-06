@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Sparklines, SparklinesLine } from "react-sparklines";
-import { FaTwitter } from "react-icons/fa";
+import { FaTwitter, FaReddit, FaFacebook, FaGithub } from "react-icons/fa";
+import DOMPurify from "dompurify";
 
 export default function Coin() {
   const [coin, setCoin] = useState({});
@@ -135,8 +136,20 @@ export default function Coin() {
 
           <div>
             <FaTwitter />
+            <FaFacebook />
+            <FaReddit />
+            <FaGithub />
           </div>
         </div>
+      </div>
+
+      <div>
+        <p>About {coin.name}</p>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(coin.description && coin.description.en)
+          }}
+        ></p>
       </div>
     </div>
   );
