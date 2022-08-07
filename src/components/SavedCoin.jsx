@@ -13,31 +13,33 @@ const SavedCoin = () => {
           <Link to="/">Click here to search for coins</Link>
         </p>
       ) : (
-        <table>
+        <table className="w-full border-collapse text-center">
           <thead>
-            <tr>
-              <th>Rank #</th>
-              <th>Coin</th>
-              <th>Remove</th>
+            <tr className="border-b">
+              <th className="px-4">Rank #</th>
+              <th className="text-left">Coin</th>
+              <th className="text-left">Remove</th>
             </tr>
           </thead>
           <tbody>
             {coins.map((coin) => (
-              <tr key={coin.id}>
+              <tr className="h-[60px] overflow-hidden" key={coin.id}>
                 <td>{coin?.rank}</td>
                 <td>
                   <Link to={`/coin/${coin.id}`}>
-                    <div>
-                      <img src={coin?.image} />
+                    <div className="flex items-center">
+                      <img className="w-8 mr-4" src={coin?.image} />
                       <div>
-                        <p>{coin?.name}</p>
-                        <p>{coin.symbol.toUpperCase}</p>
+                        <p className="hidden sm:table-cell">{coin?.name}</p>
+                        <p className="text-gray-500 text-left text-sm">
+                          {coin?.symbol.toUpperCase}
+                        </p>
                       </div>
                     </div>
                   </Link>
                 </td>
-                <td>
-                    <AiOutlineClose className="cursor-pointer" />
+                <td className="pl-8">
+                  <AiOutlineClose className="cursor-pointer" />
                 </td>
               </tr>
             ))}
