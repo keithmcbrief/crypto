@@ -23,16 +23,18 @@ const CoinItem = ({ coin }) => {
         }),
       });
     } else {
-      alert('Please sign in to save a coin.')
+      alert("Please sign in to save a coin.");
     }
   };
 
   return (
     <tr className="h-[80px] border-b overflow-hidden">
-      <td onClick={saveCoin}>
-        {
-          savedCoin ? <AiFillStar /> : <AiOutlineStar />
-        }
+      <td className="text-3xl" onClick={saveCoin}>
+        {savedCoin ? (
+          <AiFillStar className="mx-auto hover:scale-110" />
+        ) : (
+          <AiOutlineStar className="mx-auto hover:scale-110" />
+        )}
       </td>
       <td>{coin.market_cap_rank}</td>
       <td>
