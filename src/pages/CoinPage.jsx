@@ -20,7 +20,7 @@ export default function Coin() {
       <div className="flex py-8">
         <img className="w-20 mr-8" src={coin.image?.large} alt="/" />
         <div>
-          <p className="text-3xl font-bold">{coin?.name} price</p>
+          <p className="text-3xl font-bold">{coin?.name}</p>
           <p>({coin.symbol?.toUpperCase()} / USD)</p>
         </div>
       </div>
