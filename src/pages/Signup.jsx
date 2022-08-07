@@ -1,45 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiFillLock, AiOutlineMail } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
 export default function Signup() {
+  const { signUp } = UserAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await signUp(email, password);
+      navigate("/account");
+    } catch (e) {
+      setError(e.message);
+      console.log(e.message);
+    }
+  };
+
   return (
     <div>
       <div className="max-w-[400px] mx-auto min-h-[600px] px-4 py-20">
-        <h1 className="text-xl font-bold">
-          Sign Up
-          <form action="">
-            <div className="my-4">
-              <label>Email</label>
-              <div className="my-2 w-full relative rounded-2xl shadow-xl">
-                <input
-                  className="w-full p-2 bg-primary border border-input rounded-2xl"
-                  type="email"
-                />
-                <AiOutlineMail className="absolute right-2 top-3 text-gray-400" />
-              </div>
+        <h1 className="text-xl font-bold">Sign Up</h1>
+        {error && <p className="bg-red-300 p-3 my-2">{error}</p>}
+        <form onSubmit={handleSubmit}>
+          <div className="my-4">
+            <label>Email</label>
+            <div className="my-2 w-full relative rounded-2xl shadow-xl">
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full p-2 bg-primary border border-input rounded-2xl"
+                type="email"
+              />
+              <AiOutlineMail className="absolute right-2 top-3 text-gray-400" />
             </div>
-            <div className="my-4 text-md">
-              <label>Password</label>
-              <div className="y-2 w-full relative rounded-2xl shadow-xl">
-                <input
-                  className="w-full p-2 bg-primary border border-input rounded-2xl"
-                  type="password"
-                />
-                <AiFillLock className="absolute right-2 top-3 text-gray-400" />
-              </div>
+          </div>
+          <div className="my-4 text-md">
+            <label>Password</label>
+            <div className="y-2 w-full relative rounded-2xl shadow-xl">
+              <input
+                className="w-full p-2 bg-primary border border-input rounded-2xl"
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+              />
+              <AiFillLock className="absolute right-2 top-3 text-gray-400" />
             </div>
-            <button className="w-full my-2 p-3 bg-button text-sm text-btnText rounded-2xl shadow-xl">
-              Register
-            </button>
-          </form>
-          <p className="my-4 text-sm">
-            Already have an account?{" "}
-            <Link className="text-accent" to="/signin">
-              Sign in
-            </Link>
-          </p>
-        </h1>
+          </div>
+          <button className="w-full my-2 p-3 bg-button text-sm text-btnText rounded-2xl shadow-xl">
+            Register
+          </button>
+        </form>
+        <p className="my-4 text-sm">
+          Already have an account?{" "}
+          <Link className="text-accent" to="/signin">
+            Sign in
+          </Link>
+        </p>
       </div>
     </div>
   );
