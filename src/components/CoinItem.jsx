@@ -23,7 +23,7 @@ const CoinItem = ({ coin }) => {
         }),
       });
     } else {
-      alert('Sign in to save a coin to watch list')
+      alert('Please sign in to save a coin.')
     }
   };
 
