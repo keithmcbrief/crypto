@@ -28,7 +28,7 @@ export default function Signup() {
         <h1 className="text-xl font-bold">Sign Up</h1>
         {error && <p className="bg-red-300 p-3 my-2">{error}</p>}
         <form onSubmit={handleSubmit}>
-          <div className="my-4">
+          <div className="my-4 text-sm font-bold">
             <label>Email</label>
             <div className="my-2 w-full relative rounded-2xl shadow-xl">
               <input
@@ -39,7 +39,7 @@ export default function Signup() {
               <AiOutlineMail className="absolute right-2 top-3 text-gray-400" />
             </div>
           </div>
-          <div className="my-4 text-md">
+          <div className="my-4 text-sm font-bold">
             <label>Password</label>
             <div className="y-2 w-full relative rounded-2xl shadow-xl">
               <input
@@ -54,7 +54,7 @@ export default function Signup() {
             Register
           </button>
         </form>
-        <p className="my-4 text-sm">
+        <p className="my-4 text-sm font-bold">
           Already have an account?{" "}
           <Link className="text-accent" to="/signin">
             Sign in

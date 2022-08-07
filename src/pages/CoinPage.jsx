@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Sparklines, SparklinesLine } from "react-sparklines";
-import { FaTwitter, FaReddit, FaFacebook, FaGithub } from "react-icons/fa";
 import DOMPurify from "dompurify";
 
 export default function Coin() {
@@ -136,12 +135,7 @@ export default function Coin() {
               )}
             </div>
           </div>
-          <div className="flex justify-around p-8 text-accent text-3xl">
-            <FaTwitter />
-            <FaFacebook />
-            <FaReddit />
-            <FaGithub />
-          </div>
+          
         </div>
       </div>
 

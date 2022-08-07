@@ -28,7 +28,7 @@ export default function Signin() {
         <h1 className="text-xl font-bold">
           Sign In
           <form onSubmit={handleSubmit}>
-            <div className="my-4">
+            <div className="my-4 text-sm">
               <label>Email</label>
               <div className="my-2 w-full relative rounded-2xl shadow-xl">
                 <input
@@ -39,7 +39,7 @@ export default function Signin() {
                 <AiOutlineMail className="absolute right-2 top-3 text-gray-400" />
               </div>
             </div>
-            <div className="my-4 text-md">
+            <div className="my-4 text-sm">
               <label>Password</label>
               <div className="y-2 w-full relative rounded-2xl shadow-xl">
                 <input
